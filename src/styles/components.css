@@ -1,0 +1,70 @@
+
+/* Component-specific styles */
+
+/* Chatbot mockup */
+.chatbot-mockup {
+  background: linear-gradient(135deg, #4F46E5 0%, #6366F1 100%);
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(79, 70, 229, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.chatbot-mockup::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+  animation: shimmer 3s infinite;
+}
+
+/* Message bubbles */
+.message-bubble {
+  @apply px-4 py-2 rounded-2xl max-w-xs;
+}
+
+.message-user {
+  @apply bg-blue-600 text-white ml-auto;
+  border-bottom-right-radius: 6px;
+}
+
+.message-bot {
+  @apply bg-gray-100 text-gray-800;
+  border-bottom-left-radius: 6px;
+}
+
+/* Glass morphism effects */
+.glass {
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-dark {
+  backdrop-filter: blur(20px);
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* CTA Button effects */
+.cta-button {
+  @apply relative overflow-hidden;
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.cta-button:hover::before {
+  left: 100%;
+}

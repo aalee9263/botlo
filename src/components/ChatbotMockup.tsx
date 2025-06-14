@@ -1,96 +1,145 @@
 
-import { MessageCircle, Clock, CheckCircle2 } from "lucide-react";
+import React from 'react';
+import { MessageCircle, User, Bot } from 'lucide-react';
 
 interface ChatbotMockupProps {
-  type: 'whatsapp' | 'ecommerce' | 'booking' | 'lead';
+  type: 'whatsapp' | 'ecommerce' | 'booking' | 'lead' | 'healthcare' | 'education' | 'travel' | 'realestate';
   className?: string;
 }
 
-const ChatbotMockup = ({ type, className = "" }: ChatbotMockupProps) => {
-  const mockups = {
-    whatsapp: {
-      title: "WhatsApp Business",
-      messages: [
-        { type: 'user', text: "Hi! Do you have iPhone 15 in stock?" },
-        { type: 'bot', text: "Hello! Yes, we have iPhone 15 Pro in all colors. Would you like to see pricing and availability?" },
-        { type: 'user', text: "Yes, please show me options" },
-        { type: 'bot', text: "📱 iPhone 15 Pro Options:\n• 128GB - $999\n• 256GB - $1099\n• 512GB - $1299\n\nAll available in Natural Titanium, Blue, White & Black. Free delivery within 24hrs!" }
-      ],
-      color: "from-green-500 to-green-600"
-    },
-    ecommerce: {
-      title: "E-commerce Assistant",
-      messages: [
-        { type: 'user', text: "I want to return this product" },
-        { type: 'bot', text: "I'd be happy to help with your return! Please provide your order number." },
-        { type: 'user', text: "Order #12345" },
-        { type: 'bot', text: "Found your order! Return approved ✅\n\nYour return label has been sent to your email. Free pickup available tomorrow between 10AM-6PM." }
-      ],
-      color: "from-blue-500 to-purple-600"
-    },
-    booking: {
-      title: "Appointment Booking",
-      messages: [
-        { type: 'user', text: "I need a haircut appointment" },
-        { type: 'bot', text: "Perfect! I can help you book with our top stylists. What day works best for you?" },
-        { type: 'user', text: "Tomorrow afternoon" },
-        { type: 'bot', text: "Available slots tomorrow:\n• 2:00 PM with Sarah\n• 3:30 PM with Mike\n• 4:45 PM with Sarah\n\nWhich time preference works for you?" }
-      ],
-      color: "from-pink-500 to-rose-600"
-    },
-    lead: {
-      title: "Lead Generation",
-      messages: [
-        { type: 'user', text: "Tell me about your digital marketing services" },
-        { type: 'bot', text: "Great choice! We help businesses grow online with SEO, Social Media, and Ads. What's your current monthly revenue?" },
-        { type: 'user', text: "Around $50k per month" },
-        { type: 'bot', text: "Excellent! Businesses like yours typically see 40-60% growth with our strategies. I'd love to schedule a free consultation. What's your email?" }
-      ],
-      color: "from-orange-500 to-yellow-600"
+const ChatbotMockup = ({ type, className = '' }: ChatbotMockupProps) => {
+  const getMessages = () => {
+    switch (type) {
+      case 'whatsapp':
+        return [
+          { sender: 'user', text: 'Hi, I need help with my order' },
+          { sender: 'bot', text: 'Hello! I\'d be happy to help. Can you share your order number?' },
+          { sender: 'user', text: 'Order #12345' },
+          { sender: 'bot', text: 'Found your order! It\'s being processed and will ship today.' }
+        ];
+      case 'ecommerce':
+        return [
+          { sender: 'user', text: 'Show me your best deals' },
+          { sender: 'bot', text: '🛍️ Today\'s deals:\n• 50% off Electronics\n• Buy 2 Get 1 Free Clothing' },
+          { sender: 'user', text: 'Tell me about electronics' },
+          { sender: 'bot', text: 'Electronics have up to 50% discount. Which category interests you?' }
+        ];
+      case 'booking':
+        return [
+          { sender: 'user', text: 'I want to book an appointment' },
+          { sender: 'bot', text: '📅 I\'ll help you schedule! What service do you need?' },
+          { sender: 'user', text: 'Consultation' },
+          { sender: 'bot', text: 'Available today:\n• 2:00 PM\n• 4:30 PM\n• 6:00 PM' }
+        ];
+      case 'lead':
+        return [
+          { sender: 'user', text: 'Tell me about your services' },
+          { sender: 'bot', text: '🚀 We specialize in AI chatbots that increase sales by 40%!' },
+          { sender: 'user', text: 'Restaurant business' },
+          { sender: 'bot', text: 'Perfect! Our restaurant bots handle orders & reservations 24/7.' }
+        ];
+      case 'healthcare':
+        return [
+          { sender: 'user', text: 'I need to schedule a checkup' },
+          { sender: 'bot', text: '🏥 I can help! What type of appointment do you need?' },
+          { sender: 'user', text: 'General checkup' },
+          { sender: 'bot', text: 'Available slots:\n• Tomorrow 9 AM\n• Friday 2 PM\n• Monday 11 AM' }
+        ];
+      case 'education':
+        return [
+          { sender: 'user', text: 'I want to enroll in a course' },
+          { sender: 'bot', text: '📚 Great! Which subject are you interested in?' },
+          { sender: 'user', text: 'Programming' },
+          { sender: 'bot', text: 'We have Python, JavaScript, and React courses. All with certificates!' }
+        ];
+      case 'travel':
+        return [
+          { sender: 'user', text: 'Plan a trip to Dubai' },
+          { sender: 'bot', text: '✈️ Exciting! When are you planning to travel?' },
+          { sender: 'user', text: 'Next month' },
+          { sender: 'bot', text: 'I found great deals! 5-day package for $899 including hotel & flights.' }
+        ];
+      case 'realestate':
+        return [
+          { sender: 'user', text: 'Looking for a 3-bedroom house' },
+          { sender: 'bot', text: '🏠 I can help! What\'s your budget range?' },
+          { sender: 'user', text: 'Around $300k' },
+          { sender: 'bot', text: 'Found 5 properties in your range! Would you like to schedule viewings?' }
+        ];
+      default:
+        return [];
     }
   };
 
-  const mockup = mockups[type];
+  const messages = getMessages();
+  const colors = {
+    whatsapp: 'from-green-500 to-emerald-600',
+    ecommerce: 'from-blue-500 to-cyan-600',
+    booking: 'from-purple-500 to-pink-600',
+    lead: 'from-orange-500 to-red-600',
+    healthcare: 'from-red-500 to-pink-500',
+    education: 'from-indigo-500 to-purple-500',
+    travel: 'from-teal-500 to-green-500',
+    realestate: 'from-amber-500 to-orange-500'
+  };
 
   return (
-    <div className={`chatbot-mockup ${className} animate-float`}>
-      <div className={`bg-gradient-to-r ${mockup.color} p-4 text-white relative`}>
-        <div className="flex items-center space-x-3">
-          <MessageCircle className="w-6 h-6" />
+    <div className={`chatbot-mockup bg-gradient-to-br ${colors[type]} p-4 md:p-6 rounded-3xl shadow-2xl ${className} animate-fade-in flex flex-col`}>
+      {/* Header */}
+      <div className="flex items-center justify-between mb-4 pb-3 border-b border-white/20 flex-shrink-0">
+        <div className="flex items-center space-x-2 md:space-x-3">
+          <div className="w-8 h-8 md:w-10 md:h-10 bg-white/20 rounded-full flex items-center justify-center">
+            <MessageCircle className="w-4 h-4 md:w-5 md:h-5 text-white" />
+          </div>
           <div>
-            <h4 className="font-semibold">{mockup.title}</h4>
-            <div className="flex items-center text-sm opacity-90">
-              <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
-              Online • Responds instantly
-            </div>
+            <h3 className="text-white font-semibold text-xs md:text-sm">AI Assistant</h3>
+            <p className="text-white/70 text-xs">Online</p>
           </div>
         </div>
+        <div className="w-2 h-2 md:w-3 md:h-3 bg-green-400 rounded-full animate-pulse"></div>
       </div>
-      
-      <div className="p-4 bg-white space-y-3 max-h-80 overflow-y-auto">
-        {mockup.messages.map((message, index) => (
+
+      {/* Messages - Fixed height without scroll */}
+      <div className="space-y-3 flex-1 flex flex-col justify-end">
+        {messages.map((message, index) => (
           <div
             key={index}
-            className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}
-            style={{ animationDelay: `${index * 0.5}s` }}
+            className={`flex items-start space-x-2 ${
+              message.sender === 'user' ? 'justify-end' : 'justify-start'
+            }`}
           >
-            <div className={`message-bubble ${message.type === 'user' ? 'message-user' : 'message-bot'} animate-slide-up`}>
-              <p className="text-sm leading-relaxed whitespace-pre-line">{message.text}</p>
-              <div className="flex items-center justify-end mt-1 space-x-1">
-                <Clock className="w-3 h-3 opacity-60" />
-                <span className="text-xs opacity-60">now</span>
-                {message.type === 'user' && <CheckCircle2 className="w-3 h-3 text-blue-500" />}
+            {message.sender === 'bot' && (
+              <div className="w-5 h-5 md:w-6 md:h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                <Bot className="w-2 h-2 md:w-3 md:h-3 text-white" />
               </div>
+            )}
+            <div
+              className={`message-bubble text-xs md:text-sm max-w-[75%] px-3 py-2 rounded-2xl ${
+                message.sender === 'user'
+                  ? 'bg-white/90 text-gray-800 rounded-br-md'
+                  : 'bg-white/20 text-white rounded-bl-md'
+              }`}
+            >
+              {message.text}
             </div>
+            {message.sender === 'user' && (
+              <div className="w-5 h-5 md:w-6 md:h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                <User className="w-2 h-2 md:w-3 md:h-3 text-white" />
+              </div>
+            )}
           </div>
         ))}
         
-        <div className="flex justify-start">
-          <div className="message-bubble message-bot">
+        {/* Typing indicator */}
+        <div className="flex items-start space-x-2 justify-start">
+          <div className="w-5 h-5 md:w-6 md:h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+            <Bot className="w-2 h-2 md:w-3 md:h-3 text-white" />
+          </div>
+          <div className="bg-white/20 text-white px-3 py-2 rounded-2xl rounded-bl-md">
             <div className="flex space-x-1">
-              <div className="w-2 h-2 bg-botlo-neutral-400 rounded-full animate-typing"></div>
-              <div className="w-2 h-2 bg-botlo-neutral-400 rounded-full animate-typing" style={{ animationDelay: '0.2s' }}></div>
-              <div className="w-2 h-2 bg-botlo-neutral-400 rounded-full animate-typing" style={{ animationDelay: '0.4s' }}></div>
+              <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-white/60 rounded-full animate-typing"></div>
+              <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-white/60 rounded-full animate-typing" style={{ animationDelay: '0.2s' }}></div>
+              <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-white/60 rounded-full animate-typing" style={{ animationDelay: '0.4s' }}></div>
             </div>
           </div>
         </div>
