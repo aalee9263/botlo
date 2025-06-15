@@ -5,7 +5,7 @@ import { MessageSquare, Calendar, ShoppingCart, FileText, Users, TrendingUp, Arr
 
 const ServicesSection = () => {
   const handleWhatsAppClick = () => {
-    window.open("https://wa.me/923255007150", "_blank");
+    window.open("https://wa.me/+17433476532", "_blank");
   };
 
   const services = [

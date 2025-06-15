@@ -19,7 +19,7 @@ const WhatsAppFloat = () => {
   const handleWhatsAppClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    window.open("https://wa.me/923255007150", "_blank", "noopener,noreferrer");
+    window.open("https://wa.me/+17433476532", "_blank", "noopener,noreferrer");
   };
 
   const toggleExpanded = (e: React.MouseEvent) => {

@@ -4,7 +4,7 @@ import { MessageCircle, Mail, Phone, ArrowRight, Clock, Users, Zap, DollarSign, 
 
 const ContactSection = () => {
   const handleWhatsAppClick = () => {
-    window.open("https://wa.me/923255007150", "_blank");
+    window.open("https://wa.me/+17433476532", "_blank");
   };
 
   const handleEmailClick = () => {
@@ -75,7 +75,7 @@ const ContactSection = () => {
                   className="w-full cta-button bg-gradient-to-r from-botlo-primary to-botlo-secondary hover:from-botlo-primary-dark hover:to-botlo-secondary-dark text-white font-black py-6 text-lg rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg animate-pulse-glow"
                 >
                   <Phone className="mr-3 h-6 w-6 group-hover:animate-bounce" />
-                  Call Now: 0325-5007150
+                  Call Now: +1 (743) 347-6532
                   <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
                 
