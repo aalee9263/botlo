@@ -1,73 +1,51 @@
-# Welcome to your Lovable project
+# 🤖 Botlo — Chatbots That Work While You Sleep
 
-## Project info
+Welcome to the official repository of **Botlo** — a smart, 24/7 AI-powered chatbot service that works across WhatsApp, Facebook, and Instagram. Designed for business automation, lead generation, appointment booking, and e-commerce support — Botlo never sleeps, never gets tired, and always replies!
 
-**URL**: https://lovable.dev/projects/6bfdb6d0-a935-4664-8fb5-a35b013a6700
+🌐 Live Website: [https://botlo.xyz](https://botlo.xyz)
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 📌 What This Project Includes
 
-**Use Lovable**
+This is a fully custom, responsive website made for showcasing chatbot services using:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/6bfdb6d0-a935-4664-8fb5-a35b013a6700) and start prompting.
+- 🧠 AI-powered chatbot use cases
+- 📱 WhatsApp integration with automation
+- 📊 Success stories and business benefits
+- 🌍 Urdu + English language toggle
+- 📋 Interactive FAQs
+- ✅ Real UI built using Tailwind CSS, React, and ShadCN UI
+- 📥 Deployed with Netlify, connected to custom domain
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## 🚀 Technologies Used
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+| Tech           | Description                       |
+|----------------|-----------------------------------|
+| Vite           | Fast dev server + build tool      |
+| React + TS     | Frontend framework with TypeScript|
+| Tailwind CSS   | Modern responsive design          |
+| ShadCN UI      | Clean, professional UI components |
+| ManyChat API   | WhatsApp automation & chatbot     |
+| Netlify        | Free static site deployment       |
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## 🛠 How to Run Locally
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+Make sure you have Node.js and npm installed.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+```bash
+# 1. Clone the repository
+git clone https://github.com/aalee9263/botlo.git
 
-# Step 3: Install the necessary dependencies.
-npm i
+# 2. Move into project folder
+cd botlo
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# 3. Install dependencies
+npm install
+
+# 4. Start local dev server
 npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/6bfdb6d0-a935-4664-8fb5-a35b013a6700) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
